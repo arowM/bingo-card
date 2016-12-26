@@ -1,0 +1,80 @@
+$max-size: 800px;
+$font-rate: 10;
+$main-color: #c8ccfc;
+$shadow-color: #727792;
+
+@mixin cell-box {
+  border-radius: 20% 20% 0 0;
+  width: 90%;
+  display: block;
+  font-size: 0.8em;
+  margin: 0.1em 5% auto;
+  text-align: center;
+  height: calc(100% - 0.2em);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-size: calc(100vw / #{$font-rate});
+
+  @media (min-width: $max-size) {
+    font-size: calc(#{$max-size} / #{$font-rate});
+  }
+}
+
+body {
+  width: 100%;
+}
+
+.bingoCard {
+  width: 100%;
+  padding: 1em;
+  max-width: $max-size;
+  margin: 0 auto;
+
+  .bingoCard-col {
+    display: inline-block;
+    width: 20%;
+
+    .bingoCard-header {
+      background-color: $main-color;
+      text-align: center;
+    }
+
+    .bingoCard-cell {
+      border: solid 2px $main-color;
+      height: 1.2em;
+      position: relative;
+
+      .bingoCard-check {
+        display: none;
+      }
+
+      .bingoCard-cell-background {
+        background-color: $shadow-color;
+        @include cell-box;
+      }
+
+      .bingoCard-label {
+        position: absolute;
+        color: $main-color;
+        cursor: pointer;
+        border: dotted 2px $main-color;
+        border-bottom: none;
+        top: 0;
+        background-color: white;
+        transform-origin: bottom;
+        transition: all 1s ease-out;
+        @include cell-box;
+      }
+
+      .bingoCard-check:checked ~ .bingoCard-label {
+        transition: all 1s ease-in;
+        transform: rotate3d(1, 0, 0, 70deg);
+      }
+    }
+  }
+}
