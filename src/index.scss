@@ -69,6 +69,11 @@ body {
         transform-origin: bottom;
         transition: all 1s ease-out;
         @include cell-box;
+
+        &#js-cell-label-Nfree {
+          font-size: 0.5em;
+          padding-top: 0.25em;
+        }
       }
 
       .bingoCard-check:checked ~ .bingoCard-label {
