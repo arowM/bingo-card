@@ -16,7 +16,7 @@ const commonConfig = {
 
   // Directory to output compiled files
   output: {
-    path: path.resolve(__dirname, 'dist/'),
+    path: path.resolve(__dirname, 'docs/'),
     filename: '[name]-[hash].js',
   },
 
@@ -127,9 +127,9 @@ if (TARGET_ENV === 'production') {
 
     plugins: [
       new CopyWebpackPlugin([
-        {
-          from: 'src/favicon.ico'
-        },
+        // {
+        //   from: 'src/favicon.ico'
+        // },
       ]),
 
       new webpack.optimize.OccurenceOrderPlugin(),
